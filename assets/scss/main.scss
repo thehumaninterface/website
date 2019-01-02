@@ -1,0 +1,6 @@
+$red: rgba(255,0,0,1);
+
+body::before {
+  color: $red!important;
+  content: 'Working sass file';
+}
