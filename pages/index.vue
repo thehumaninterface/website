@@ -1,7 +1,6 @@
 <template>
   <div>
-
-    <nav>
+    <nav class="navmenu">
       engleză
 
       servicii, workflow, despre, proiecte, cariere
@@ -10,29 +9,30 @@
     </nav>
 
     <main>
-
-
       <section class="section section-intro">
-        <p>interfața umană este preocupată de un singur lucru: experiența utilizatorului</p>
-        <p>ideea este să uiți că există un ecran între tine și aplicație</p>
+
+        <div class="media">
+          <img src="" alt="main image">          
+        </div>
+        <p class="large">interfața umană este preocupată de un singur lucru: experiența utilizatorului</p>
+        <p class="large">ideea este să uiți că există un ecran între tine și aplicație</p>
       </section>
 
       <section class="section section-services">
-
-        <h2>Servicii</h2>
+          <h2>Servicii</h2>
           
-        <div class="media">
-          <img src="" alt="">
-        </div>
+          <ul>
+            <li>User Research.</li>
+            <li>User Experience.</li>
+            <li>Graphical User Interface.</li>
+            <li>Interaction Design.</li>
+            <li>Data visualization.</li>
+          </ul>
+          <p>Aplicat pe web apps, web sites intranets, etc.</p>
 
-        <ul>
-          <li>User Research.</li>
-          <li>User Experience.</li>
-          <li>Graphical User Interface.</li>
-          <li>Interaction Design.</li>
-          <li>Data visualization.</li>
-        </ul>
-        <p>Aplicat pe web apps, web sites intranets, etc.</p>
+        <div class="section-media">
+          <img src="" alt="media">
+        </div>
 
       </section>
 
@@ -123,9 +123,11 @@
           </blockquote>
         </div>
       </section>
-
     </main>
 
+    <nav class="navcontrols">
+      next
+    </nav>
 
     <footer>
 
@@ -145,8 +147,6 @@
 
     </footer>
 
-
-
   </div>
 </template>
 
@@ -160,6 +160,112 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+  @import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,600&subset=latin-ext');
+
+  :root {
+    font-size: 8px;
+
+    --gutter: 3rem;
+  }
+  @media (min-width: 900px) {
+    :root {
+      font-size: 10px;
+
+      --gutter: 4rem;
+    }
+  }
+  body {
+    font-size: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.5;
+
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+
+
+  .large {
+    font-size: 125%;
+  }
+  
+
+  .container {
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+
+  @media (max-width: 899px) {
+    .navmenu {
+    }
+    main section {
+      min-height: calc(100vh - 12rem);
+    }
+    .navcontrols {
+      position: sticky;
+      bottom: 0;
+      background: #fff;
+    }
+  }
+
+
+  .media {
+    position: relative;
+
+    border: 1px solid lightgray;
+
+    img {
+      display: block;
+    }
+
+    @media (max-width: 899px) {
+      margin-bottom: 1em; 
+      padding-bottom: 56.25%;
+      img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+
+
+
+  body {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+
+  // you need
+  // 1. div before media
+  // 2. div for media
+  // 3. div after media
+  // container takes a 4 row template: 1fr auto auto 1fr;
+  // before media row: 2
+  // after media row: 3
+  // media row-start; 1 / -1
+
+  // .section {
+  //   display: grid;
+  //   grid-template-columns: 1fr 1fr;
+  //   grid-template-rows: 1fr auto auto 1fr;
+
+  //   .section-media {
+  //     grid-column: 2;
+  //     grid-row: 1 / -1;
+  //     height: 40rem;
+  //   }
+  // }
+
+
 </style>
 
