@@ -1,15 +1,20 @@
 <template>
   <div>
     <nav class="navmenu">
+
+      {{ message }}
       engleză
 
       servicii, workflow, despre, proiecte, cariere
+
+
 
       contact
     </nav>
 
     <main>
       <section class="section section-intro">
+
 
         <div class="media">
           <img src="" alt="main image">          
@@ -147,15 +152,36 @@
 
     </footer>
 
+    <!-- <script src='https://unpkg.com/intersection-observer@0.5.0/intersection-observer.js'></script> -->
+    <!-- <script src='https://unpkg.com/scrollama'></script> -->
+
   </div>
 </template>
 
 <script>
-import AppLogo from '~/components/AppLogo.vue'
+import scrollama from '~/node_modules/scrollama';
 
 export default {
-  components: {
-    AppLogo
+  data: function() {
+    return {
+      message: 'message'
+    }
+  },
+  mounted() {
+
+    var scroller = scrollama();
+
+    var vueInstance = this;
+    var i = 0;
+
+    scroller
+      .setup({
+        step: 'section'
+      })
+      .onStepEnter(function() {
+        vueInstance._data.message = 'step ' + i++;
+      })
+    ;
   }
 }
 </script>
@@ -209,6 +235,11 @@ export default {
       position: sticky;
       bottom: 0;
       background: #fff;
+    }
+  }
+  @media (min-width: 900px) {
+    main section {
+      min-height: calc(100vh - 12rem);
     }
   }
 
