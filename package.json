@@ -16,7 +16,9 @@
     "deploy": "npx push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
-    "nuxt": "^2.0.0"
+    "intersection-observer": "^0.5.1",
+    "nuxt": "^2.0.0",
+    "scrollama": "^1.4.4"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
