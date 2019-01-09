@@ -1,0 +1,71 @@
+@import '_config';
+@import '_utilities';
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+
+  a {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 1rem;
+
+    color: var(--color-muted);
+    text-transform: lowercase;
+    text-decoration: none;
+  }
+}
+
+.navbar-language {
+  margin-left: -1rem;
+}
+.navbar-action {
+  margin-right: -1rem;
+}
+
+.navbar-menu {
+  text-align: center;
+
+  ul {
+    @include no-list;
+  }
+
+  @media (max-width: 899px) {
+    ul {
+      margin-top: 10rem;
+      margin-bottom: 4rem;
+    }
+    a {
+      font-size: 150%;
+      color: inherit;
+    }
+  }
+
+  @media (min-width: 900px) {
+    ul {
+      display: flex;
+    }
+    a.nuxt-link-active {
+      color: inherit;
+    }
+  }
+}
+
+.navbar-menu-toggle {
+  @media (min-width: 900px) { display: none; }
+  @include no-btn;
+
+  color: var(--color-body);
+
+  svg {
+    display: inline-block;
+    // vertical-align: middle;
+    width: 4rem;
+    height: auto;
+  }
+
+  &:hover,
+  &:focus {
+    
+  }
+}
